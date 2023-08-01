@@ -14,9 +14,7 @@ import java.util.stream.Collectors;
 public class MyClientHandler extends SimpleChannelInboundHandler<String> {
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
-        System.out.println(ctx.channel().remoteAddress());
         System.out.println(msg);
-//        ctx.channel().writeAndFlush("client write");
     }
 
     @Override
@@ -25,9 +23,4 @@ public class MyClientHandler extends SimpleChannelInboundHandler<String> {
         System.out.println("error");
     }
 
-    @Override
-    public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        ctx.writeAndFlush("active");
-        System.out.println("client active");
-    }
 }
